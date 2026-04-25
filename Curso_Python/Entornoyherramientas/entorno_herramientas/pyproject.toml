@@ -1,0 +1,57 @@
+[project]
+name = "entorno-herramientas"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "IsaiasDuqueAxity",email = "dennis.torres@axity.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "entorno_herramientas", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+skip-string-normalization = false
+
+[tool.isort]
+profile = "black"
+line_length = 88
+known_first_party = ["entorno_herramientas"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+select = [
+    "E",   # pycodestyle (PEP 8)
+    "F",   # pyflakes (errores reales)
+    "I",   # order imports
+    "B",   # bugbear (bugs comunes)
+    "C4",  # comprehensions
+    "UP",  # mejoras Python moderno
+]
+ignore = [
+    "E203",  # conflicto con black
+    "E266",  # comentarios especiales
+    "E501",  # longitud de línea (black manda)
+]
+
+[dependency-groups]
+dev = [
+    "black (>=26.3.1,<27.0.0)",
+    "isort (>=8.0.1,<9.0.0)",
+    "ruff (>=0.15.12,<0.16.0)",
+    "pre-commit (>=4.6.0,<5.0.0)"
+]
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.0"
+
