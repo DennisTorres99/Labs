@@ -1,0 +1,6 @@
+[
+  {"id": 1, "nombre": "Dennis Torres", "email": "dennis@empresa.com", "activo": true},
+  {"id": 2, "nombre": "Ana López", "email": "ana@gmail.com", "activo": true},
+  {"id": 3, "nombre": "Luis Pérez", "email": "luis@empresa.com", "activo": false},
+  {"id": 4, "nombre": "Carlos Ruiz", "email": "carlos@empresa.com", "activo": true}
+]
