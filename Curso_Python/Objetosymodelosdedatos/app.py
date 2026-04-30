@@ -6,10 +6,6 @@ from typing import List
 
 from pydantic import BaseModel, Field
 
-# ======================================================
-# ENTIDAD DE DOMINIO (dataclass)
-# ======================================================
-
 
 @dataclass(order=True)
 class Order:
