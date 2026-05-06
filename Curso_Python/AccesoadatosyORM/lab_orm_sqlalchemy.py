@@ -1,8 +1,7 @@
 from __future__ import annotations
 
 from sqlalchemy import ForeignKey, Integer, String, create_engine
-from sqlalchemy.orm import (DeclarativeBase, Mapped, Session, mapped_column,
-                            relationship)
+from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, relationship
 
 
 # ORM

@@ -12,10 +12,9 @@ if str(MODULE_PATH) not in sys.path:
 
 from logging.config import fileConfig
 
+from alembic import context
 from models import Base  # noqa: E402
 from sqlalchemy import engine_from_config, pool
-
-from alembic import context
 
 config = context.config
 
