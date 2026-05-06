@@ -1,6 +1,6 @@
 import time
+from collections.abc import Callable
 from functools import wraps
-from typing import Callable, Type
 
 
 def retry(
@@ -8,7 +8,7 @@ def retry(
     attempts: int = 3,
     delay: float = 0.5,
     backoff: float = 2.0,
-    exceptions: tuple[Type[Exception], ...] = (Exception,),
+    exceptions: tuple[type[Exception], ...] = (Exception,),
 ) -> Callable:
 
     def decorator(func: Callable) -> Callable:

@@ -9,8 +9,8 @@ def cargar_json(ruta: Path) -> list[dict]:
     try:
         with ruta.open(encoding="utf-8") as archivo:
             return json.load(archivo)
-    except FileNotFoundError:
-        raise FileNotFoundError(f"No se encontró el archivo: {ruta}")
+    except FileNotFoundError as err:
+        raise FileNotFoundError(f"No se encontró el archivo: {ruta}") from err
     except json.JSONDecodeError as error:
         raise ValueError("El archivo no contiene JSON válido") from error
 

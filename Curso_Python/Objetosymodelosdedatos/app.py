@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import List
 
 from pydantic import BaseModel, Field
 
@@ -16,7 +15,7 @@ class Order:
 
     order_id: int
     customer_name: str
-    prices: List[float]
+    prices: list[float]
     created_at: datetime = field(default_factory=datetime.utcnow)
 
     @property
@@ -39,7 +38,7 @@ class Order:
 
 class OrderIn(BaseModel):
     customer_name: str = Field(min_length=3)
-    prices: List[float] = Field(min_items=1)
+    prices: list[float] = Field(min_items=1)
 
     def to_entity(self, order_id: int) -> Order:
         """Conversión DTO -> Entidad"""

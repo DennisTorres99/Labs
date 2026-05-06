@@ -4,7 +4,7 @@ import csv
 import json
 import logging
 from collections.abc import Iterable
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import TypedDict
 
@@ -86,7 +86,7 @@ def export_metrics(metrics: dict[str, float], path: Path) -> None:
     logger.info("Exportando métricas a JSON")
 
     output = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "metrics": metrics,
     }
 
