@@ -1,12 +1,18 @@
+from db import SessionLocal
 from domain import Order
+from models import OrderModel
 
 
 class SqlOrderRepository:
-    def __init__(self):
-        self._db = []
-
     def save(self, order: Order) -> None:
-        self._db.append(order)
+        db = SessionLocal()
+        db.add(OrderModel(id=order.id, total=order.total))
+        db.commit()
+        db.close()
 
     def get_all(self):
-        return self._db
+        db = SessionLocal()
+        result = db.query(OrderModel).all()
+        db.close()
+
+        return [Order(o.id, o.total) for o in result]
